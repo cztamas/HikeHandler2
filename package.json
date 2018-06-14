@@ -4,8 +4,8 @@
   "description": "very fun",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --config webpack.config.js --mode=development",
-    "build-prod": "webpack --config webpack.config.js --mode=production",
+    "build": "webpack --config webpack.config.js --mode=development --env.config=dev",
+    "build-prod": "webpack --config webpack.config.js --mode=production --env.config=prod",
     "heroku-postbuild": "webpack --config webpack.config.js --mode=production",
     "start": "node --optimize_for_size --max_old_space_size=460 --gc_interval=100 dist/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -14,6 +14,8 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.16.3",
+    "mongodb": "^3.0.10",
+    "nconf": "^0.10.0",
     "react": "^16.4.0",
     "react-dom": "^16.4.0"
   },
