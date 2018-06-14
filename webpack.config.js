@@ -25,7 +25,7 @@ module.exports = env => {
 		]
 	};
 
-	if (env.config) {
+	if (env && env.config) {
 		const configFileName = `config-${env.config}.json`;
 		config.plugins.push(new CopyWebpackPlugin([{
 			from: configFileName,
