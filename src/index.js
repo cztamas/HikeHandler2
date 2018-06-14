@@ -3,7 +3,9 @@ const path = require("path");
 const dataRouter = require("./server");
 
 const app = express();
-const port = 5000;
+const defaultPort = 5000;
+
+const port = process.env.PORT || defaultPort;
 
 app.use("/", express.static(path.join(__dirname, "client")));
 app.use("/data", dataRouter);
