@@ -4,6 +4,7 @@
   "description": "very fun",
   "main": "index.js",
   "scripts": {
+    "backup": "node ./src/scripts/old-db-backup/backup.js",
     "build": "webpack --config webpack.config.js --mode=development --env.config=dev",
     "build-prod": "webpack --config webpack.config.js --mode=production --env.config=prod",
     "heroku-postbuild": "webpack --config webpack.config.js --mode=production",
@@ -13,21 +14,23 @@
   "author": "cztamas",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.16.3",
-    "mongodb": "^3.0.10",
+    "express": "^4.16.4",
+    "googleapis": "^34.0.0",
+    "mongodb": "^3.1.8",
+    "mysql": "^2.16.0",
     "nconf": "^0.10.0",
-    "react": "^16.4.0",
-    "react-dom": "^16.4.0"
+    "react": "^16.6.0",
+    "react-dom": "^16.6.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
-    "babel-loader": "^7.1.4",
+    "babel-loader": "^7.1.5",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
-    "copy-webpack-plugin": "^4.5.1",
-    "eslint": "^4.19.1",
-    "eslint-plugin-react": "^7.9.1",
-    "webpack": "^4.12.0",
-    "webpack-cli": "^3.0.3"
+    "copy-webpack-plugin": "^4.6.0",
+    "eslint": "^5.8.0",
+    "eslint-plugin-react": "^7.11.1",
+    "webpack": "^4.24.0",
+    "webpack-cli": "^3.1.2"
   }
 }

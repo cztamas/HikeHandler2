@@ -1,7 +1,7 @@
 "use strict";
 
 const express = require("express");
-const nconf = require("nconf").argv().env().file("./config.json");
+const nconf = require("nconf");
 const path = require("path");
 
 const configFilePath = path.join(__dirname, "config.json");
