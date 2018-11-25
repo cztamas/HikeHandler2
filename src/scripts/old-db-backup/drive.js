@@ -2,6 +2,7 @@
 
 const fs = require("fs");
 const { google } = require("googleapis");
+const open = require("open");
 const path = require("path");
 const readline = require("./readline");
 
@@ -11,8 +12,8 @@ const SCOPES = [
 	"https://www.googleapis.com/auth/drive.file"
 ];
 
-const CREDENTIALS_PATH = path.join(__dirname, "../../../credentials/credentials.json");
-const TOKEN_PATH = path.join(__dirname, "../../../credentials/token.json");
+const CREDENTIALS_PATH = path.join(__dirname, "../../../credentials/drive-credentials.json");
+const TOKEN_PATH = path.join(__dirname, "../../../credentials/drive-token.json");
 
 let driveInstance;
 
@@ -71,8 +72,8 @@ function getAccessToken(oAuth2Client) {
 			access_type: "offline",
 			scope: SCOPES,
 		});
-		console.log("Authorize this app by visiting this url:", authUrl);
-		const authorizationCode = await readline.question("Enter the code from that page here: ");
+		open(authUrl);
+		const authorizationCode = await readline.question("Enter the code from the authorization page here: ");
 		oAuth2Client.getToken(authorizationCode, (err, token) => {
 			if (err) {
 				return reject(err);
