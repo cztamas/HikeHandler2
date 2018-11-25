@@ -5,10 +5,8 @@
   "main": "index.js",
   "scripts": {
     "backup": "node ./src/scripts/old-db-backup/backup.js",
-    "build": "webpack --config webpack.config.js --mode=development --env.config=dev",
-    "build-prod": "webpack --config webpack.config.js --mode=production --env.config=prod",
-    "heroku-postbuild": "webpack --config webpack.config.js --mode=production",
-    "start": "node --optimize_for_size --max_old_space_size=460 --gc_interval=100 dist/index.js",
+    "heroku-postbuild": "webpack --config webpack.prod.config.js --mode=production",
+    "start": "webpack-dev-server --config webpack.dev.config.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "cztamas",
@@ -27,11 +25,14 @@
     "babel-loader": "^7.1.5",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
+    "clean-webpack-plugin": "^1.0.0",
     "copy-webpack-plugin": "^4.6.0",
     "eslint": "^5.8.0",
     "eslint-plugin-react": "^7.11.1",
+    "html-webpack-plugin": "^3.2.0",
     "open": "0.0.5",
     "webpack": "^4.24.0",
-    "webpack-cli": "^3.1.2"
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.10"
   }
 }
