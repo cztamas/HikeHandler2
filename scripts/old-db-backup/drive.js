@@ -12,8 +12,8 @@ const SCOPES = [
 	"https://www.googleapis.com/auth/drive.file"
 ];
 
-const CREDENTIALS_PATH = path.join(__dirname, "../../../credentials/drive-credentials.json");
-const TOKEN_PATH = path.join(__dirname, "../../../credentials/drive-token.json");
+const CREDENTIALS_PATH = path.join(__dirname, "../../credentials/drive-credentials.json");
+const TOKEN_PATH = path.join(__dirname, "../../credentials/drive-token.json");
 
 let driveInstance;
 

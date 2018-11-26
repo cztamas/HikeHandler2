@@ -3,7 +3,7 @@
 const mysql = require("mysql");
 const path = require("path");
 
-const configFilePath = path.join(__dirname, "../../../backup-config.json");
+const configFilePath = path.join(__dirname, "../../backup-config.json");
 const config = require(configFilePath);
 
 const connection = mysql.createConnection({
