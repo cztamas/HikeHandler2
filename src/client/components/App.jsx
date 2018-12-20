@@ -1,8 +1,8 @@
-"use strict";
+'use strict';
 
-import React from "react";
-import LoginPage from "./LoginPage.jsx";
-import MainComponent from "./MainComponent.jsx";
+import React from 'react';
+import LoginPage from './LoginPage.jsx';
+import MainComponent from './MainComponent.jsx';
 
 export default class App extends React.Component {
 	constructor(props) {
@@ -15,7 +15,7 @@ export default class App extends React.Component {
 
 	render() {
 		return (
-			<div className="app">
+			<div className='app'>
 				{
 					this.state.loading ?
 						<div>Loading...</div> :
@@ -26,13 +26,13 @@ export default class App extends React.Component {
 	}
 
 	componentDidMount() {
-		window.gapi.load("auth2", () => {
+		window.gapi.load('auth2', () => {
 			// Retrieve the singleton for the GoogleAuth library and set up the client.
 			window.auth2 = gapi.auth2.init({
-				client_id: "62861573301-2ksdfnmn404hri23cus1tq6142hcslfd.apps.googleusercontent.com",
-				cookiepolicy: "single_host_origin",
-				// Request scopes in addition to "profile" and "email"
-				//scope: "additional_scope"
+				client_id: '62861573301-2ksdfnmn404hri23cus1tq6142hcslfd.apps.googleusercontent.com',
+				cookiepolicy: 'single_host_origin',
+				// Request scopes in addition to 'profile' and 'email'
+				//scope: 'additional_scope'
 			});
 
 			this.setState({
@@ -40,4 +40,4 @@ export default class App extends React.Component {
 			});
 		});
 	}
-};
+}

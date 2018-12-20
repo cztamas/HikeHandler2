@@ -5,7 +5,10 @@
         "es6": true,
         "node": true
     },
-    "extends": "plugin:react/recommended",
+    "extends": [
+        "eslint:recommended",
+        "plugin:react/recommended"
+    ],
     "parserOptions": {
         "ecmaFeatures": {
             "experimentalObjectRestSpread": true,
@@ -19,21 +22,25 @@
     ],
     "rules": {
         "indent": [
-            "error",
+            "warn",
             "tab"
         ],
         "linebreak-style": [
-            "error",
+            "warn",
             "windows"
         ],
+        "no-console": "off",
         "no-unused-vars": "warn",
         "quotes": [
-            "error",
-            "double"
+            "warn",
+            "single"
         ],
         "semi": [
-            "error",
+            "warn",
             "always"
         ]
+    },
+    "globals": {
+        "gapi": false
     }
 }

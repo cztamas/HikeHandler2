@@ -1,13 +1,13 @@
-"use strict";
+'use strict';
 
-import React from "react";
+import React from 'react';
 
 export default class MainComponent extends React.Component {
 	render() {
 		return (
-			<div className="main-component">
+			<div className='main-component'>
 				<h1>App content</h1>
 			</div>
 		);
 	}
-};
+}
