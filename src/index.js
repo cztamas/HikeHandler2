@@ -1,17 +1,12 @@
 'use strict';
 
 const express = require('express');
-const nconf = require('nconf');
 const path = require('path');
 
-const configFilePath = path.join(__dirname, 'config.json');
-nconf.argv().env().file(configFilePath);
-
-console.log('beer', nconf.get('DB_URL'));
+const { port } = require('./config');
 const dataRouter = require('./server');
 
 const app = express();
-const port = nconf.get('PORT');
 
 app.use('/', express.static(path.join(__dirname, 'client')));
 app.use('/data', dataRouter);
