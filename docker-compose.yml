@@ -4,4 +4,4 @@ services:
     image: postgres:10.6
     restart: always
     ports:
-      - '5442:5432'
+      - '6442:5432'

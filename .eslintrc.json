@@ -25,10 +25,6 @@
             "warn",
             "tab"
         ],
-        "linebreak-style": [
-            "warn",
-            "windows"
-        ],
         "no-console": "off",
         "no-unused-vars": "warn",
         "quotes": [
