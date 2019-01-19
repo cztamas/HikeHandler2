@@ -2,25 +2,23 @@
 
 const express = require('express');
 const PostgresClient = require('pg').Client;
-
 const config = require('../config');
-console.log(config);
 
 const router = express.Router();
 
 const postgresClient = new PostgresClient({
-	connectionString: config.dbUrl,
+	connectionString: config.dbConnectionString,
 });
 postgresClient.connect();
 
 router.get('/', (req, res) => {
 	try {
-		postgresClient.query('SELECT * FROM test', (err, result) => {
+		postgresClient.query('SELECT * FROM users', (err, result) => {
 			if (err) {
+				console.log('Error', err);
 				res.status(500).send('An error happened.');
 			}
-			const data = result.rows[0].data;
-			res.status(200).send(data);
+			res.status(200).send(result.rows);
 		});
 	} catch (error) {
 		res.status(500).send('An error happened.');
