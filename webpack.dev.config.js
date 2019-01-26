@@ -1,3 +1,5 @@
+'use strict';
+
 const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
@@ -23,6 +25,11 @@ module.exports = {
 			to: '..',
 			ignore: ['*.jsx'],
 			context: 'src'
+		}]),
+		new CopyWebpackPlugin([{
+			from: 'img',
+			to: 'img',
+			ignore: ['*.jsx']
 		}])
 	],
 	output: {

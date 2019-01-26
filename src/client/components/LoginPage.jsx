@@ -22,9 +22,9 @@ export default class LoginPage extends React.Component {
 		return (
 			<div>
 				<h1>Log in</h1>
-				<div ref={this.loginButton} className='customGPlusSignIn'>
-					<span className='icon'></span>
-					<span className='buttonText'>Google</span>
+				<div ref={this.loginButton} className='google-sso'>
+					<div className='google-sso-icon'></div>
+					<div className='google-sso-button-text'>Sign in with Google</div>
 				</div>
 			</div>
 		);
