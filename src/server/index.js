@@ -17,6 +17,7 @@ router.get('/', (req, res) => {
 			if (err) {
 				console.log('Error', err);
 				res.status(500).send('An error happened.');
+				return;
 			}
 			res.status(200).send(result.rows);
 		});
