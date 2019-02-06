@@ -7,7 +7,7 @@ const WebpackShellPlugin = require('webpack-shell-plugin');
 
 module.exports = {
 	mode: 'development',
-	entry: './src/client/index.jsx',
+	entry: ['babel-polyfill', './src/client/index.jsx'],
 	devtool: 'inline-source-map',
 	watch: true,
 	module: {

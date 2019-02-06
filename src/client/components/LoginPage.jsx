@@ -1,6 +1,7 @@
 'use strict';
 
 import React from 'react';
+import { login } from '../services/api';
 
 export default class LoginPage extends React.Component {
 	constructor(props) {
@@ -10,9 +11,11 @@ export default class LoginPage extends React.Component {
 
 	componentDidMount() {
 		window.auth2.attachClickHandler(this.loginButton.current, {},
-			function(googleUser) {
+			async function(googleUser) {
 				const nameOfUser = googleUser.getBasicProfile().getName();
-				window.alert(nameOfUser);
+				const idToken = googleUser.getAuthResponse().id_token;
+				const serverResponse = await login(idToken);
+				window.alert(serverResponse + ' ' + nameOfUser);
 			}, function(error) {
 				alert(JSON.stringify(error, undefined, 2));
 			});
