@@ -7,16 +7,17 @@
     "backup": "node ./scripts/old-db-backup/backup.js",
     "build-dev": "webpack --config webpack.dev.config.js",
     "build-prod": "webpack --config webpack.prod.config.js --mode=production",
-    "heroku-postbuild": "webpack --config webpack.prod.config.js --mode=production",
     "docker": "docker-compose up -d",
+    "heroku-postbuild": "webpack --config webpack.prod.config.js --mode=production",
+    "init-db": "npm run migrate && npm run seed",
     "migrate": "knex migrate:latest",
     "seed": "knex seed:run",
-    "init_db": "npm run migrate && npm run seed",
-    "start-client": "webpack-dev-server --config webpack.dev.config.js",
-    "start-server": "forever -w --watchDirectory src/server start src/index.js",
-    "start": "npm run docker && npm run start-server && npm run start-client",
+    "start": "npm run start-db && npm run build-dev",
+    "start-db": "npm run docker && npm run wait-until-db-is-up && npm run init-db",
+    "start-server": "forever -w --watchDirectory dist/server start dist/index.js",
     "stop": "forever stopall && docker-compose down",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "wait-until-db-is-up": "node scripts/wait-until-db-is-up.js"
   },
   "author": "cztamas",
   "license": "ISC",
@@ -31,6 +32,8 @@
     "react-dom": "16.7.0"
   },
   "devDependencies": {
+    "@emartech/delay-js": "1.0.0",
+    "axios": "0.18.0",
     "babel-core": "6.26.3",
     "babel-loader": "7.1.5",
     "babel-preset-env": "1.7.0",
@@ -44,6 +47,6 @@
     "open": "0.0.5",
     "webpack": "4.28.0",
     "webpack-cli": "3.1.2",
-    "webpack-dev-server": "3.1.10"
+    "webpack-shell-plugin": "0.5.0"
   }
 }

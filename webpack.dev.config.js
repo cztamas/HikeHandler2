@@ -3,14 +3,13 @@
 const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const WebpackShellPlugin = require('webpack-shell-plugin');
 
 module.exports = {
 	mode: 'development',
 	entry: './src/client/index.jsx',
 	devtool: 'inline-source-map',
-	devServer: {
-		contentBase: './dist/client/'
-	},
+	watch: true,
 	module: {
 		rules: [
 			{
@@ -30,7 +29,10 @@ module.exports = {
 			from: 'img',
 			to: 'img',
 			ignore: ['*.jsx']
-		}])
+		}]),
+		new WebpackShellPlugin({
+			onBuildEnd: ['npm run start-server']
+		})
 	],
 	output: {
 		filename: 'index.js',
