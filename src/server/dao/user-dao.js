@@ -6,16 +6,20 @@ const knex = require('knex')({
 	connection: dbConnectionString,
 });
 
+async function createUser(email) {
+	await knex('users').insert({
+		email
+	});
+	return (await getUserByEmail(email))[0];
+}
+
+async function getUserByEmail(email) {
+	return knex('users').where({
+		email
+	}).select('id', 'email');
+}
+
 module.exports = {
-	async createUser(email) {
-		await knex('users').insert({
-			email
-		});
-		return this.getUserByEmail(email);
-	},
-	async getUserByEmail(email) {
-		return knex('users').where({
-			email
-		}).select('id', 'email');
-	}
+	getUserByEmail,
+	createUser
 };

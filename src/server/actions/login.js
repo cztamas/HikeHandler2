@@ -33,6 +33,6 @@ module.exports = async (req, res) => {
 		ttl: config.cookieTTLInSeconds * 1000
 	});
 
-	res.cookie('jwt', jwtToken, { maxAge: config.cookieTTLInSeconds * 1000 });
+	res.cookie(config.cookieName, jwtToken, { maxAge: config.cookieTTLInSeconds * 1000 });
 	res.sendStatus(200);
 };
