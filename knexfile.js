@@ -1,5 +1,6 @@
 'use strict';
 
+const path = require('path');
 const config = require('./src/config');
 
 module.exports = {
@@ -11,5 +12,8 @@ module.exports = {
 	},
 	migrations: {
 		tableName: 'knex_migrations'
+	},
+	seeds: {
+		directory: path.join(__dirname, `/seeds/${config.environment}`)
 	}
 };
