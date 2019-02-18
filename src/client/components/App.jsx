@@ -4,6 +4,8 @@ import React from 'react';
 import LoginPage from './LoginPage.jsx';
 import MainComponent from './MainComponent.jsx';
 
+const { googleClientId } = require('../config');
+
 export default class App extends React.Component {
 	constructor(props) {
 		super(props);
@@ -29,7 +31,7 @@ export default class App extends React.Component {
 		window.gapi.load('auth2', () => {
 			// Retrieve the singleton for the GoogleAuth library and set up the client.
 			window.auth2 = gapi.auth2.init({
-				client_id: '62861573301-2ksdfnmn404hri23cus1tq6142hcslfd.apps.googleusercontent.com',
+				client_id: googleClientId,
 				cookiepolicy: 'single_host_origin',
 				// Request scopes in addition to 'profile' and 'email'
 				//scope: 'additional_scope'
