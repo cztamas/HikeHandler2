@@ -2,7 +2,7 @@
 
 exports.up = function(knex) {
 	return knex.schema.table('users', function(table) {
-		table.string('name').notNull();
+		table.string('name').notNull().defaultTo('');
 	});
 };
 
