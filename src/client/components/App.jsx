@@ -59,6 +59,7 @@ export default class App extends React.Component {
 				this.setState({
 					loggedInUser: {
 						email: jwtData.email,
+						name: jwtData.name,
 						id: jwtData.id
 					}
 				});

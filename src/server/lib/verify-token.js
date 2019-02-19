@@ -13,6 +13,7 @@ module.exports = async function isTokenValid(idToken) {
 
 		return {
 			email: response.payload.email,
+			name: response.payload.name,
 			isValid: true
 		};
 	} catch (error) {

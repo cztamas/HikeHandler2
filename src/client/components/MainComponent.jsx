@@ -11,7 +11,7 @@ export default class MainComponent extends React.Component {
 		return (
 			<div className='main-component'>
 				<h1>App content</h1>
-				<h2>You are {this.props.user.email}</h2>
+				<h2>You are {this.props.user.name} ({ this.props.user.email }).</h2>
 			</div>
 		);
 	}

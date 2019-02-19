@@ -7,7 +7,7 @@ const verifyToken = require('../lib/verify-token');
 
 module.exports = async (req, res) => {
 	const token = req.body.token;
-	const { isValid, email } = await verifyToken(token);
+	const { isValid, email, name } = await verifyToken(token);
 	if (!isValid) {
 		return res.status(403).send('Invalid token');
 	}
@@ -21,13 +21,14 @@ module.exports = async (req, res) => {
 		if (!config.permittedUsers.includes(email)) {
 			return res.status(401).send({ error: 'You are not allowed to use this application.' });
 		}
-		user = await createUser(email);
+		user = await createUser({ email, name });
 	} else {
 		user = result[0];
 	}
 
 	const jwtToken = jwt.encode({
 		email: user.email,
+		name: user.name,
 		id: user.id,
 		iat: Date.now(),
 		ttl: config.cookieTTLInSeconds * 1000

@@ -12,11 +12,9 @@ export default class LoginPage extends React.Component {
 	componentDidMount() {
 		window.auth2.attachClickHandler(this.loginButton.current, {},
 			async function(googleUser) {
-				const nameOfUser = googleUser.getBasicProfile().getName();
 				const idToken = googleUser.getAuthResponse().id_token;
-				const serverResponse = await login(idToken);
+				await login(idToken);
 
-				window.alert(serverResponse + ' ' + nameOfUser);
 				window.location.reload();
 			}, function(error) {
 				alert(JSON.stringify(error, undefined, 2));
