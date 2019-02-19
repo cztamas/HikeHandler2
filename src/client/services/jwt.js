@@ -1,6 +1,7 @@
 import config from '../config';
 
 const cookies = require('browser-cookies');
+const { decode } = require('jwt-simple');
 
 export const deleteCookie = () => {
 	cookies.set(config.cookieName, '');
@@ -12,8 +13,7 @@ export const getJwtData = () => {
 		return null;
 	}
 	try {
-		const base64EncodedJwtData = jwt.split('.')[1];
-		const jwtData = JSON.parse(window.atob(base64EncodedJwtData));
+		const jwtData = decode(jwt, null, true);
 
 		if (jwtData.iat + jwtData.ttl > Date.now()) {
 			return jwtData;
