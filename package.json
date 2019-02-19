@@ -17,7 +17,7 @@
     "start-server": "forever -w --watchDirectory dist/server start dist/index.js",
     "stop": "forever stopall && docker-compose down",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "wait-until-db-is-up": "node scripts/wait-until-db-is-up.js"
+    "wait-until-db-is-up": "node scripts/await-postgres-in-docker.js hikehandler_db"
   },
   "author": "cztamas",
   "license": "ISC",
@@ -45,6 +45,7 @@
     "babel-preset-react": "6.24.1",
     "clean-webpack-plugin": "1.0.0",
     "copy-webpack-plugin": "4.6.0",
+    "docker-cli-js": "2.5.1",
     "eslint": "5.8.0",
     "eslint-plugin-react": "7.11.1",
     "forever": "0.15.3",
